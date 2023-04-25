@@ -4,7 +4,6 @@ import {
   useState,
   useContext,
   useEffect,
-  useCallback,
 } from "react";
 import api from "../utils/api";
 
@@ -16,7 +15,7 @@ export const StarWarsProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-//  const [totalPage, setTotalPage] = useState(4);
+  const [totalPage, setTotalPage] = useState(0);
 
   const loadMore = () => { //buttona tıklandığında bir sonraki verileri getir.
     setPage(page + 1)
@@ -27,8 +26,8 @@ export const StarWarsProvider = ({ children }) => {
     try {
       const response = await api.get(`starships/?page=${page}`);
       const returnedData = await response.data;
-      // setTotalPage(returnedData);
       setStarships([...starships, ...returnedData.results]); // oluşturduğum statede saklıyorum ve load more buttonuna tıklandıgında gelen verileri üzerine ekliyorum.
+      setTotalPage(returnedData.next); // load buttonunu veriler bitince göstermemek için!!
       console.log(returnedData.results);
     } catch (error) {
       console.log(error);
@@ -38,11 +37,7 @@ export const StarWarsProvider = ({ children }) => {
     }
   };
 
-  const getSearch = async () => { //test et
-    if (search == "" || undefined || null) {
-      alert("Aradığınız kriterlere uygun sonuç bulunamadı.");
-      return;
-    }
+  const getSearch = async () => {
     setLoading(true);
     try {
       const response = await api.get(`starships/?search=${search}`);
@@ -56,13 +51,13 @@ export const StarWarsProvider = ({ children }) => {
     }
   };
 
-  // const handleInputChange = ((e) => {
-  //   setSearch(e.target.value); //test
-  // });
-  // const onSubmitHandler =((e) => {
-  //   e.preventDefault(); //test
-  //   getSearch(search);
-  // })
+   const handleInputChange = ((e) => {//arama kutusundaki değer
+     setSearch(e.target.value);
+   });
+   const onSubmitHandler =((e) => {// button a tıklandıgında veriler içinde ara
+     e.preventDefault(); 
+      getSearch(search);   
+   })
 
   useEffect(() => {
      getStarships();
@@ -70,16 +65,17 @@ export const StarWarsProvider = ({ children }) => {
 
 
   useEffect(() => {
-    getSearch(); // test
-  }, [search]);
+    getSearch(); 
+  }, []);
 
   const values = {
     starships,
+    search,
     loading,
-    // onSubmitHandler,
-    // handleInputChange,
+    onSubmitHandler,
+    handleInputChange,
     loadMore,
-    // totalPage,
+    totalPage,
     page,
   };
 
