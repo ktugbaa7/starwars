@@ -14,22 +14,31 @@ export const StarWarsProvider = ({ children }) => {
   const [search, setSearch] = useState();
   const [starships, setStarships] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
-  const getStarships = useCallback(async () => { //yıldız gemileri verisini axios ile alıyorum.
+//  const [totalPage, setTotalPage] = useState(4);
+
+  const loadMore = () => { //buttona tıklandığında bir sonraki verileri getir.
+    setPage(page + 1)
+  }
+
+  const getStarships = async () => { //yıldız gemileri verisini axios ile alıyorum.
     setLoading(true);
     try {
-      const response = await api.get(`starships/`);
+      const response = await api.get(`starships/?page=${page}`);
       const returnedData = await response.data;
-      setStarships(returnedData.results); // oluşturuğum statede saklıyorum.
+      // setTotalPage(returnedData);
+      setStarships([...starships, ...returnedData.results]); // oluşturduğum statede saklıyorum ve load more buttonuna tıklandıgında gelen verileri üzerine ekliyorum.
       console.log(returnedData.results);
     } catch (error) {
       console.log(error);
+      return "hata tekrar dene."
     } finally {
       setLoading(false);
     }
-  });
+  };
 
-  const getSearch = useCallback(async () => { //test
+  const getSearch = async () => { //test et
     if (search == "" || undefined || null) {
       alert("Aradığınız kriterlere uygun sonuç bulunamadı.");
       return;
@@ -45,19 +54,20 @@ export const StarWarsProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  });
+  };
 
-  const handleInputChange = ((e) => {
-    setSearch(e.target.value); //test
-  });
-  const onSubmitHandler =((e) => {
-    e.preventDefault(); //test
-    getSearch(search);
-  })
+  // const handleInputChange = ((e) => {
+  //   setSearch(e.target.value); //test
+  // });
+  // const onSubmitHandler =((e) => {
+  //   e.preventDefault(); //test
+  //   getSearch(search);
+  // })
 
   useEffect(() => {
-    getStarships();
-  }, []);
+     getStarships();
+  }, [page]);
+
 
   useEffect(() => {
     getSearch(); // test
@@ -66,8 +76,11 @@ export const StarWarsProvider = ({ children }) => {
   const values = {
     starships,
     loading,
-    onSubmitHandler,
-    handleInputChange,
+    // onSubmitHandler,
+    // handleInputChange,
+    loadMore,
+    // totalPage,
+    page,
   };
 
   return (
