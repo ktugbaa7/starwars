@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../utils/api';
 
@@ -9,19 +9,19 @@ function StarshipsDetails() {
 
  const { id } = useParams();
 
-  const getStarshipsDetails = useCallback( async () => { //!!! resimler
+  const getStarshipsDetails =  async () => {
     try {
       const response = await api.get(`/starships/${id}`);
       setShipsData(response.data);
-      console.log(response.data.name);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     } 
-  },[id]);
+  };
   
   useEffect(() => {
     getStarshipsDetails();
-  },[getStarshipsDetails]);
+  },[id]);
 
   return (
     <div>
@@ -31,7 +31,7 @@ function StarshipsDetails() {
         <p>manufacturer: {shipsdata?.manufacturer}</p>
         <p>crew: {shipsdata?.crew}</p>
         <p>cargo_capacity: {shipsdata?.cargo_capacity}</p>
-        <img src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`} alt="img" /> 
+       {/* <img src={require("../../assets/image/" + shipsdata?.name + ".jpg")} alt="shipsdata img" />  */}
     </div>
   )
 }

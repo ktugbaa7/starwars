@@ -1,32 +1,27 @@
 import React from "react";
 import { useStarWars } from "../../context/StarWarsContext";
-import { Link } from "react-router-dom";
-import getUrlId from "../../utils/getUrlId";
+import SearchBar from "../SearchBar/SearchBar";
+import { Container, Grid } from "@mui/material";
+import StarshipsCard from "../StarshipsCard/StarshipsCard";
 
 function StarshipsList() {
   const { starships, loading, loadMore, totalPage, page } = useStarWars();
-  
+
   return (
-    <div>
-      {loading ? "Loading..." : ""}
-      <div>
-        {starships &&
-          starships.map((ships, id) => (
-            <div key={id}>
-              <p>name: {ships.name}</p>
-              <p>model: {ships.model}</p>
-              <p>hiper sürücü derecelendirmesi: {ships.hyperdrive_rating}</p>
-              
-                <Link to={`starships/${getUrlId(ships.url)}`}>
-                 <div> <img
-                  style={{ height: 200, width: 200 }}
-                  src={require("../../assets/image/" + ships.name + ".jpg")}
-                  alt="ships img"
-                /></div>
-                </Link>
-              
-            </div>
-          ))}
+    <div className="starships-list">
+      <SearchBar />
+      {/* {loading ? "Loading..." : ""} */}
+      <div className="starships-list__container">
+        <Container sx={{ marginTop: 3, backgroundColor: "red"}}>
+          <Grid container spacing={3}>
+            {starships &&
+              starships.map((ships, id) => (
+                <Grid item sx={{ mt: 3 }} xs={12} sm={6} md={4} lg={3}>
+                  <StarshipsCard key={id} ships={ships} />
+                </Grid>
+              ))}
+          </Grid>
+        </Container>
       </div>
       {totalPage !== page && (
         <button onClick={loadMore}>
