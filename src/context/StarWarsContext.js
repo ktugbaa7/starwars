@@ -14,28 +14,29 @@ export const StarWarsProvider = ({ children }) => {
   const [starships, setStarships] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-
+  const [loadingMore, setLoadingMore] = useState(false);
   const [totalPage, setTotalPage] = useState(0);
 
   const loadMore = () => { //buttona tıklandığında bir sonraki verileri getir.
-    setPage(page + 1)
+    setPage(page + 1);
   }
 
   const getStarships = async () => { //yıldız gemileri verisini axios ile alıyorum.
-    setLoading(true);
+    setLoadingMore(true);
     try {
       const response = await api.get(`starships/?page=${page}`);
       const returnedData = await response.data;
       setStarships([...starships, ...returnedData.results]); // oluşturduğum statede saklıyorum ve load more buttonuna tıklandıgında gelen verileri üzerine ekliyorum.
-      setTotalPage(returnedData.next); // load buttonunu veriler bitince göstermemek için!!
+      setTotalPage(returnedData.next); // load buttonunu veriler bitince göstermemek için. totalPage null'sa button gösterilmeyecek.
       console.log(returnedData.results);
     } catch (error) {
       console.log(error);
       return "hata tekrar dene."
     } finally {
-      setLoading(false);
+      setLoadingMore(false);
     }
   };
+
 
   const getSearch = async () => {
     setLoading(true);
@@ -77,6 +78,7 @@ export const StarWarsProvider = ({ children }) => {
     loadMore,
     totalPage,
     page,
+    loadingMore,
   };
 
   return (

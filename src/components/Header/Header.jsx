@@ -13,8 +13,8 @@ import {
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { GiLightSabers } from "react-icons/gi";
-import logo from "../../assets/image/logosw.png"
-
+import logo from "../../assets/image/logoS.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,34 +27,45 @@ function Header() {
   const logoSW = logo;
 
   const logoStyle = {
-    width: 130,
-    height: 60,
-    xs: "none", 
-    md: "flex"
-  }
+    width: 140,
+    height: 80,
+    xs: "none",
+    md: "flex",
+  };
   const menuItems = {
     width: 200,
     height: 40,
-    color: "black", 
+    color: "black",
     ":hover": {
-      color: "red", 
-      transition: "0.4s", 
-      backgroundColor: "black"
+      color: "yellow",
+      transition: "0.4s",
     },
-    textAlign: "center"
-  }
+    textAlign: "center",
+  };
+  const navButton = {
+    my: 4,
+    color: "#fff",
+    display: "block",
+    ":hover": {
+      color: "yellow",
+      textShadow:
+        "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px, 2px 2px 2px rgba(206,202,119,0)",
+    },
+  };
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" 
-      sx={{ 
-        backgroundColor: "black", 
-        paddingBottom: 1, 
-        paddingTop: 1, 
-        borderBottom: "1px solid", 
-        borderColor: "#413F42",
-      }}>
+    <AppBar>
+      <Container
+        maxWidth="xl"
+        sx={{
+          position: "fixed",
+          top: 0,
+          zIndex: 1,
+          backgroundColor: "black",
+          borderBottom: "1px solid",
+          borderColor: "#413F42",
+        }}
+      >
         <Toolbar disableGutters>
-        
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -63,11 +74,11 @@ function Header() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-              sx={{ ":hover":{
-                color: "red",
-                transition: "0.4s"
-              },
-              
+              sx={{
+                ":hover": {
+                  color: "yellow",
+                  transition: "0.4s",
+                },
               }}
             >
               <MenuIcon />
@@ -87,50 +98,62 @@ function Header() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },    
-
+                display: { xs: "block", md: "none" },
               }}
             >
               <MenuList onClick={handleCloseNavMenu}>
-              <MenuItem sx={menuItems}>
-                <Typography textAlign="center">Home</Typography>
-              </MenuItem>
-              <MenuItem  sx={menuItems}>
-                <Typography textAlign="center">About</Typography>
-              </MenuItem>
-              <MenuItem  sx={menuItems}>
-                <Typography textAlign="center">Swapi</Typography>
-              </MenuItem>  
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <MenuItem sx={menuItems}>
+                    <Typography textAlign="center">Home</Typography>
+                  </MenuItem>
+                </Link>
+                <Link to="/about" style={{ textDecoration: "none" }}>
+                  <MenuItem sx={menuItems}>
+                    <Typography textAlign="center">About</Typography>
+                  </MenuItem>
+                </Link>
+                <Link
+                  to="https://swapi.dev/"
+                  style={{ textDecoration: "none" }}
+                >
+                  <MenuItem sx={menuItems}>
+                    <Typography textAlign="center">Swapi</Typography>
+                  </MenuItem>
+                </Link>
               </MenuList>
-                              
             </Menu>
           </Box>
-          <GiLightSabers style={{width: 40, height:40, marginRight: 10 }} sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}/>
+          <GiLightSabers
+            style={{ width: 40, height: 40, marginRight: 10 }}
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
 
           <img src={logoSW} alt="starwars img" style={logoStyle} />
 
-          
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: "flex-end" } }}>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 4, color: "white", display: "block"}}
-            >
-              HomeEE
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              About
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              SWAPI
-            </Button>
+          <Box
+            sx={{
+              paddingX: 6,
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "flex-end" },
+            }}
+          >
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Button onClick={handleCloseNavMenu} sx={navButton}>
+                Home
+              </Button>
+            </Link>
+
+            <Link to="/about" style={{ textDecoration: "none" }}>
+              <Button onClick={handleCloseNavMenu} sx={navButton}>
+                About
+              </Button>
+            </Link>
+            <Link to="https://swapi.dev/" style={{ textDecoration: "none" }}>
+              <Button onClick={handleCloseNavMenu} sx={navButton}>
+                SWAPI
+              </Button>
+            </Link>
           </Box>
-          
         </Toolbar>
       </Container>
     </AppBar>

@@ -4,8 +4,10 @@ import StarshipsList from "./components/StarshipsList/StarshipsList";
 import { StarWarsProvider } from "./context/StarWarsContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StarshipsDetails from "./pages/StarshipsDetails/StarshipsDetails";
+import About from "./pages/AboutPage/AboutPage";
 
 function App() {
+  
   return (
     <StarWarsProvider>
       <BrowserRouter>
@@ -14,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<StarshipsList />} />
               <Route path="/starships/:id" element={<StarshipsDetails />} />
+              <Route path="/about" element={<About />}/>
             </Routes>
           </div>
       </BrowserRouter>

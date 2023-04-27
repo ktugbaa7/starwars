@@ -4,10 +4,9 @@ import { useParams } from 'react-router-dom';
 import api from '../../utils/api';
 
 function StarshipsDetails() {
-  
   const [shipsdata, setShipsData] = useState();
 
- const { id } = useParams();
+  const { id } = useParams();
 
   const getStarshipsDetails =  async () => {
     try {
@@ -31,7 +30,7 @@ function StarshipsDetails() {
         <p>manufacturer: {shipsdata?.manufacturer}</p>
         <p>crew: {shipsdata?.crew}</p>
         <p>cargo_capacity: {shipsdata?.cargo_capacity}</p>
-       {/* <img src={require("../../assets/image/" + shipsdata?.name + ".jpg")} alt="shipsdata img" />  */}
+       {/* <img src={require("../../assets/image/" + shipsdata?.name + ".png")} alt="shipsdata img" /> */}
     </div>
   )
 }

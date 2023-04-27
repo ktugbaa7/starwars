@@ -1,1 +1,50 @@
-/*# sourceMappingURL=style.css.map */
+.starships-list {
+  width: 100%;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 20%, rgb(20, 38, 31) 76%, rgb(24, 47, 42) 100%);
+}
+.starships-list__saber {
+  position: relative;
+  top: 30%;
+  border-radius: 10px;
+  width: 100%;
+  height: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+  background: white;
+}
+
+.writer {
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.typewriter {
+  display: inline-block;
+  color: white;
+}
+.typewriter__text {
+  color: #39db3c;
+  background-image: -webkit-linear-gradient(0deg, #39db3c 14%, #56def0 59%, #fff06b 86%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2em;
+  letter-spacing: 10px;
+  font-family: monospace;
+  border-right: 5px solid;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(41), cursor 0.4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}/*# sourceMappingURL=style.css.map */
