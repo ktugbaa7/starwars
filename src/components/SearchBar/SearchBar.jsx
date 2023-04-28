@@ -53,6 +53,7 @@ function SearchBar() {
             border: "1px solid",
             borderColor: "#413F42",
             borderRadius: "10px 0  0 10px",
+            fontFamily:"monospace",
           }}
         />
         <Button

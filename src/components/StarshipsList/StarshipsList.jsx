@@ -28,6 +28,7 @@ function StarshipsList() {
                   marginBottom: 1,
                   color: "#fff",
                   fontWeight: "bold",
+                  fontFamily:"monospace"
                 }}
               >
                 Starships

@@ -36,6 +36,7 @@ function StarshipsDetails() {
     width: "100%",
     textAlign: "center",
     fontSize: 18,
+    fontFamily:"monospace",
   };
   const iconStyle = {
     fontSize: 25,

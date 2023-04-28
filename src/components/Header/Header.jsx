@@ -36,6 +36,7 @@ function Header() {
     width: 200,
     height: 40,
     color: "black",
+    fontFamily:"monospace",
     ":hover": {
       color: "#facf5a",
       transition: "0.4s",
@@ -46,6 +47,8 @@ function Header() {
     my: 4,
     color: "#fff",
     display: "block",
+    fontFamily:"monospace",
+    fontSize: 15,
     ":hover": {
       color: "#facf5a",
       textShadow:

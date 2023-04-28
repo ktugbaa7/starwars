@@ -11,6 +11,7 @@ function About() {
     width: "100%",
     textAlign: "center",
     fontSize: 18,
+    fontFamily:"monospace",
   };
 
   return (

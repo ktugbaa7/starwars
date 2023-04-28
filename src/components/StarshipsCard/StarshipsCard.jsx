@@ -30,7 +30,7 @@ function StarshipsCard({ ships }) {
           />
         </Link>
         <CardContent sx={{ height: 120, color: "#f8f8f8" }}>
-          <Typography gutterBottom variant="h5"  sx={{lineHeight: "1.5rem", fontSize:18, fontWeight: 800}}>
+          <Typography gutterBottom variant="h5"  sx={{lineHeight: "1.5rem", fontSize:18, fontWeight: 600, fontFamily: "monospace"}}>
             {ships.name}
           </Typography>
           <Box
@@ -38,11 +38,11 @@ function StarshipsCard({ ships }) {
             sx={{
               display: "flex",
               alignItems: "center",
-              paddingBottom: 2
+              paddingBottom: 2,
             }}
           >
             <SiStarship style={{ fontSize: 25, color: "#facf5a", marginRight: 10 }} />
-            <Typography variant="body2" noWrap>
+            <Typography variant="body2" noWrap fontFamily="monospace" fontSize={15}>
               {ships.model}
             </Typography>
           </Box>
@@ -53,8 +53,8 @@ function StarshipsCard({ ships }) {
               alignItems: "center",
             }}
           >
-            <AiOutlineStar style={{ fontSize: 25, color: "#facf5a", paddingRight:10 }} />
-            <Typography variant="body2" noWrap>
+            <AiOutlineStar style={{ fontSize: 35, color: "#facf5a", paddingRight:10 }} />
+            <Typography variant="body2" fontFamily="monospace" fontSize={15} noWrap>
               {ships.hyperdrive_rating}
             </Typography>
           </Box>
