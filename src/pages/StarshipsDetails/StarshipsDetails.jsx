@@ -64,7 +64,7 @@ function StarshipsDetails() {
             "& > :not(style)": {
               m: "auto",
               width: "70%",
-              height: 400,
+              height: 450,
               marginTop: 25,
               marginBottom: 5,
               opacity: 0.7,
