@@ -10,18 +10,24 @@ function SearchBar() {
     <Box
       component="form"
       onSubmit={onSubmitHandler}
-      sx={{ backgroundColor: "black", fontWeight: "light", borderBottom: "1px solid",
-      borderColor: "#413F42", paddingBottom: 3, marginTop: 10}}
+      sx={{
+        backgroundColor: "black",
+        fontWeight: "light",
+        borderBottom: "1px solid",
+        borderColor: "#413F42",
+        paddingBottom: 3,
+        marginTop: 10,
+        boxShadow: "0px 0px 10px -2px rgba(184,184,184,1)"
+      }}
     >
       <div className="writer">
         <div className="typewriter">
           <p className="typewriter__text">
-            "The greatest teacher, failure is." -Yoda
+          "May the force be with you."
           </p>
         </div>
       </div>
       <FormControl
-      required
         sx={{
           paddingY: 3,
           marginX: 1,
@@ -50,7 +56,7 @@ function SearchBar() {
           }}
         />
         <Button
-          onClick={onSubmitHandler}
+          type="submit"
           sx={{
             border: "1px solid #413F42",
             borderRadius: "0 10px 10px 0",
@@ -63,7 +69,7 @@ function SearchBar() {
             sx={{
               color: "grey",
               ":hover": {
-                color: "yellow",
+                color: "#facf5a",
               },
             }}
           />

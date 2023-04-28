@@ -37,7 +37,7 @@ function Header() {
     height: 40,
     color: "black",
     ":hover": {
-      color: "yellow",
+      color: "#facf5a",
       transition: "0.4s",
     },
     textAlign: "center",
@@ -47,7 +47,7 @@ function Header() {
     color: "#fff",
     display: "block",
     ":hover": {
-      color: "yellow",
+      color: "#facf5a",
       textShadow:
         "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px, 2px 2px 2px rgba(206,202,119,0)",
     },
@@ -55,7 +55,7 @@ function Header() {
   return (
     <AppBar>
       <Container
-        maxWidth="xl"
+        maxWidth
         sx={{
           position: "fixed",
           top: 0,
@@ -76,7 +76,7 @@ function Header() {
               color="inherit"
               sx={{
                 ":hover": {
-                  color: "yellow",
+                  color: "#facf5a",
                   transition: "0.4s",
                 },
               }}
@@ -123,16 +123,24 @@ function Header() {
               </MenuList>
             </Menu>
           </Box>
-          <GiLightSabers
-            style={{ width: 40, height: 40, marginRight: 10 }}
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-          />
-
-          <img src={logoSW} alt="starwars img" style={logoStyle} />
-
           <Box
             sx={{
-              paddingX: 6,
+              flexGrow: 1,
+              display: { xs: "none", md: "block" },
+            }}
+          >
+            <GiLightSabers
+              style={{ width: 40, height: 40 }}
+              sx={{ display: { xs: "flex", md: "none" } }}
+            />
+          </Box>
+          <Link to="/">
+            <Box sx={{ flexGrow: 0, marginLeft: 15 }}>
+              <img src={logoSW} alt="starwars img" style={logoStyle} />
+            </Box>
+          </Link>
+          <Box
+            sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex", justifyContent: "flex-end" },
             }}

@@ -28,7 +28,7 @@ export const StarWarsProvider = ({ children }) => {
       const returnedData = await response.data;
       setStarships([...starships, ...returnedData.results]); // oluşturduğum statede saklıyorum ve load more buttonuna tıklandıgında gelen verileri üzerine ekliyorum.
       setTotalPage(returnedData.next); // load buttonunu veriler bitince göstermemek için. totalPage null'sa button gösterilmeyecek.
-      console.log(returnedData.results);
+      
     } catch (error) {
       console.log(error);
       return "hata tekrar dene."
@@ -44,7 +44,7 @@ export const StarWarsProvider = ({ children }) => {
       const response = await api.get(`starships/?search=${search}`);
       const returnedData = await response.data;
       setStarships(returnedData.results);
-      console.log(returnedData.results);
+      
     } catch (error) {
       console.log(error);
     } finally {

@@ -30,17 +30,18 @@ function StarshipsList() {
                   fontWeight: "bold",
                 }}
               >
-                Sharships
+                Starships
               </Typography>
               <div className="starships-list__saber"></div>
-              {starships &&
-                starships.map((ships, id) => (
+              {starships.length > 0 ?
+                (starships.map((ships, id) => (
                   <Grid paddingX={2} item sx={{ mt: 4 }} xs={12} sm={6} md={4} lg={3}>
                     <StarshipsCard key={id} ships={ships} />
                   </Grid>
-                ))}
+                ))):(<div style={{color: "white", height: 150, paddingTop: 30 }}>Starships Not Found!</div>)}
             </Grid>
-            {totalPage !== null && (
+              
+            {totalPage !== null && starships.length > 0 ? (
               <Stack spacing={2} sx={{ alignItems: "center", paddingY: 2 }}>
                 <Button
                   variant="outlined"
@@ -48,8 +49,8 @@ function StarshipsList() {
                     color: "white",
                     borderColor: "white",
                     ":hover": {
-                      color: "yellow",
-                      borderColor: "yellow",
+                      color: "#facf5a",
+                      borderColor: "#facf5a",
                     },
                   }}
                   onClick={loadMore}
@@ -57,7 +58,7 @@ function StarshipsList() {
                   {loadingMore  ? "Loading..." : "Show More"}
                 </Button>
               </Stack>
-            )}
+            ): (<div></div>)}
           </Container>
         </div>
       )}
