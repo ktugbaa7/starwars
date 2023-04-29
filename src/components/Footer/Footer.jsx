@@ -13,6 +13,7 @@ import {
 function Footer() {
   const iconStyle = {
     marginInlineEnd: "1rem",
+    cursor: "pointer",
   };
   const bull = (
     <Box
@@ -54,7 +55,7 @@ function Footer() {
           <SiTwitter style={iconStyle} />
           <SiYoutube style={iconStyle} />
           <SiHackerrank style={iconStyle} />
-          <SiInstagram />
+          <SiInstagram style={{cursor: "pointer"}} />
         </Box>
         <Box
           sx={{

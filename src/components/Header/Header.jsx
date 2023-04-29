@@ -24,6 +24,9 @@ function Header() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+  const homePage = () => {
+    window.location.assign("/"); 
+  };
   const logoSW = logo;
 
   const logoStyle = {
@@ -36,7 +39,7 @@ function Header() {
     width: 200,
     height: 40,
     color: "white",
-    fontFamily:"monospace",
+    fontFamily: "monospace",
     ":hover": {
       color: "#facf5a",
       transition: "0.4s",
@@ -46,7 +49,7 @@ function Header() {
     my: 4,
     color: "#fff",
     display: "block",
-    fontFamily:"monospace",
+    fontFamily: "monospace",
     fontSize: 15,
     ":hover": {
       color: "#facf5a",
@@ -100,13 +103,13 @@ function Header() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
-                "& .MuiDrawer-paper":{
+                "& .MuiDrawer-paper": {
                   backgroundColor: "black",
                   paddingTop: 3,
-                }
+                },
               }}
             >
-              <MenuList onClick={handleCloseNavMenu} >
+              <MenuList onClick={handleCloseNavMenu}>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <MenuItem sx={menuItems}>
                     <Typography textAlign="center">Home</Typography>
@@ -139,32 +142,25 @@ function Header() {
               sx={{ display: { xs: "flex", md: "none" } }}
             />
           </Box>
-          <Link to="/">
-            <Box sx={{ flexGrow: 0, marginLeft: 15 }}>
-              <img src={logoSW} alt="starwars img" style={logoStyle} />
-            </Box>
-          </Link>
+
+          <Box onClick={homePage} sx={{ flexGrow: 0, marginLeft: 15 }}>
+            <img src={logoSW} alt="starwars img" style={logoStyle} />
+          </Box>
+
           <Box
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex", justifyContent: "flex-end" },
             }}
           >
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <Button onClick={handleCloseNavMenu} sx={navButton}>
-                Home
-              </Button>
-            </Link>
-
+            <Button onClick={homePage} sx={navButton}>
+              Home
+            </Button>
             <Link to="/about" style={{ textDecoration: "none" }}>
-              <Button onClick={handleCloseNavMenu} sx={navButton}>
-                About
-              </Button>
+              <Button sx={navButton}>About</Button>
             </Link>
             <Link to="https://swapi.dev/" style={{ textDecoration: "none" }}>
-              <Button onClick={handleCloseNavMenu} sx={navButton}>
-                SWAPI
-              </Button>
+              <Button sx={navButton}>SWAPI</Button>
             </Link>
           </Box>
         </Toolbar>
