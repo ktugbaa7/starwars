@@ -11,7 +11,36 @@ function About() {
     width: "100%",
     textAlign: "center",
     fontSize: 18,
-    fontFamily:"monospace",
+    fontFamily: "monospace",
+  };
+  const boxStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    "& > :not(style)": {
+      m: "auto",
+      width: "80%",
+      height: 400,
+      marginTop: 25,
+      marginBottom: 15,
+      opacity: 0.7,
+      padding: 1,
+      backgroundColor: "black",
+      borderRadius: 4,
+      boxShadow: "0px 0px 10px -2px rgba(184,184,184,1)",
+    },
+  };
+  const paperStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexFlow: "column",
+  };
+  const containerStyled = {
+    backgroundImage: `url(${img})`,
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
   };
 
   return (
@@ -21,52 +50,23 @@ function About() {
         position: "relative",
         height: "100vh",
       }}
-      style={{
-        backgroundImage: `url(${img})`,
-        height: "100%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
+      style={containerStyled}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          "& > :not(style)": {
-            m: "auto",
-            width: "80%",
-            height: 400,
-            marginTop: 25,
-            marginBottom: 15,
-            opacity: 0.7,
-            padding: 1,
-            backgroundColor: "black",
-            borderRadius: 4,
-            boxShadow: "0px 0px 10px -2px rgba(184,184,184,1)",
-          },
-        }}
-      >
-        <Paper
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexFlow: "column",
-          }}
-        >
+      <Box sx={boxStyle}>
+        <Paper sx={paperStyle}>
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-             flexWrap: "wrap"
+              flexWrap: "wrap",
             }}
           >
             <Typography component="div" sx={typographyStyle}>
               Technologies
             </Typography>
             <Typography component="div" sx={typographyStyle}>
-              Javascript - React - Axios - Material Ui - SCSS - React Icons - SWAPI
+              Javascript - React - Axios - Material Ui - SCSS - React Icons -
+              SWAPI
             </Typography>
           </Box>
         </Paper>

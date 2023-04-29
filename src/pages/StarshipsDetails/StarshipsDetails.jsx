@@ -10,7 +10,7 @@ import { SiStarship } from "react-icons/si";
 import { MdSpeed, MdPrecisionManufacturing } from "react-icons/md";
 import { GiCargoCrate, GiSpaceship, GiGalaxy } from "react-icons/gi";
 import { IoIosPeople } from "react-icons/io";
-import gif from "../../assets/image/bgbg.jpg";
+import img from "../../assets/image/bgbg.jpg";
 
 function StarshipsDetails() {
   const [shipsdata, setShipsData] = useState();
@@ -44,9 +44,32 @@ function StarshipsDetails() {
     color: "#facf5a",
     marginRight: 10,
   };
-  const boxStyle = {
+  const miniBoxStyle = {
     display: "flex",
     alignItems: "center",
+  };
+  const containerStyled = {
+    backgroundImage: `url(${img})`,
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+  const boxStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    "& > :not(style)": {
+      m: "auto",
+      width: "90%",
+      height: 450,
+      marginTop: 25,
+      marginBottom: 15,
+      opacity: 0.7,
+      padding: 1,
+      backgroundColor: "black",
+      borderRadius: 4,
+      boxShadow: "0px 0px 10px -2px rgba(184,184,184,1)",
+    },
   };
 
   return (
@@ -55,34 +78,10 @@ function StarshipsDetails() {
       sx={{
         height: "100vh",
         position: "relative",
-        zIndex: 77,
       }}
-      style={{
-        backgroundImage: `url(${gif})`,
-        height: "100%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
+      style={containerStyled}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          "& > :not(style)": {
-            m: "auto",
-            width: "90%",
-            height: 450,
-            marginTop: 25,
-            marginBottom: 15,
-            opacity: 0.7,
-            padding: 1,
-            backgroundColor: "black",
-            borderRadius: 4,
-            boxShadow: "0px 0px 10px -2px rgba(184,184,184,1)",
-          },
-        }}
-      >
+      <Box sx={boxStyle}>
         <Paper
           sx={{
             display: "flex",
@@ -91,50 +90,50 @@ function StarshipsDetails() {
             flexFlow: "column",
           }}
         >
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <GiSpaceship style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Name : {shipsdata?.name}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <SiStarship style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Model: {shipsdata?.model}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <MdSpeed style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               {" "}
               Max Atmosphering Speed: {shipsdata?.max_atmosphering_speed}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <MdPrecisionManufacturing style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Manufacturer: {shipsdata?.manufacturer}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <RiTeamFill style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Crew: {shipsdata?.crew}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <GiCargoCrate style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Cargo Capacity: {shipsdata?.cargo_capacity}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <IoIosPeople style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               Passengers: {shipsdata?.passengers}
             </Typography>
           </Box>
-          <Box sx={boxStyle}>
+          <Box sx={miniBoxStyle}>
             <GiGalaxy style={iconStyle} />
             <Typography component="div" sx={typographyStyle}>
               MGLT: {shipsdata?.MGLT}
