@@ -29,11 +29,6 @@ Kullanılan API: [SWAPI](https://swapi.dev/)
 - [Material Ui](https://mui.com/core/)
 - [SCSS](https://sass-lang.com/)
 
-## Özellikler
-
-- Canlı ön izleme
-- Tam ekran modu
-- Tüm platformlara destek
 
 ## Geri Bildirim
 
