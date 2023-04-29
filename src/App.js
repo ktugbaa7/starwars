@@ -6,19 +6,26 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StarshipsDetails from "./pages/StarshipsDetails/StarshipsDetails";
 import About from "./pages/AboutPage/AboutPage";
 import Footer from "./components/Footer/Footer";
+import Layout from "./components/Layout/Layout";
 
 function App() {
-  
   return (
     <StarWarsProvider>
-      <BrowserRouter> 
-            <Header />
-            <Routes>
-              <Route path="/" element={<StarshipsList />} />
-              <Route path="/starships/:id" element={<StarshipsDetails />} />
-              <Route path="/about" element={<About />}/>
-            </Routes>
-            <Footer />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <StarshipsList />
+              </Layout>
+            }
+          />
+          <Route path="/starships/:id" element={<StarshipsDetails />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
       </BrowserRouter>
     </StarWarsProvider>
   );

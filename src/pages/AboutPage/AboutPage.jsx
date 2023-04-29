@@ -35,10 +35,10 @@ function About() {
           flexWrap: "wrap",
           "& > :not(style)": {
             m: "auto",
-            width: "70%",
+            width: "80%",
             height: 400,
             marginTop: 25,
-            marginBottom: 5,
+            marginBottom: 15,
             opacity: 0.7,
             padding: 1,
             backgroundColor: "black",

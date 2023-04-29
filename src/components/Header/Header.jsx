@@ -3,8 +3,8 @@ import {
   Box,
   Button,
   Container,
+  Drawer,
   IconButton,
-  Menu,
   MenuItem,
   MenuList,
   Toolbar,
@@ -35,13 +35,12 @@ function Header() {
   const menuItems = {
     width: 200,
     height: 40,
-    color: "black",
+    color: "white",
     fontFamily:"monospace",
     ":hover": {
       color: "#facf5a",
       transition: "0.4s",
     },
-    textAlign: "center",
   };
   const navButton = {
     my: 4,
@@ -60,9 +59,8 @@ function Header() {
       <Container
         maxWidth
         sx={{
-          position: "fixed",
+          position: "relative",
           top: 0,
-          zIndex: 1,
           backgroundColor: "black",
           borderBottom: "1px solid",
           borderColor: "#413F42",
@@ -86,7 +84,7 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <Drawer
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -102,9 +100,13 @@ function Header() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
+                "& .MuiDrawer-paper":{
+                  backgroundColor: "black",
+                  paddingTop: 3,
+                }
               }}
             >
-              <MenuList onClick={handleCloseNavMenu}>
+              <MenuList onClick={handleCloseNavMenu} >
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <MenuItem sx={menuItems}>
                     <Typography textAlign="center">Home</Typography>
@@ -124,7 +126,7 @@ function Header() {
                   </MenuItem>
                 </Link>
               </MenuList>
-            </Menu>
+            </Drawer>
           </Box>
           <Box
             sx={{

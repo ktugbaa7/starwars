@@ -39,7 +39,7 @@ function StarshipsList() {
                   <Grid paddingX={2} item sx={{ mt: 4 }} xs={12} sm={6} md={4} lg={3}>
                     <StarshipsCard key={id} ships={ships} />
                   </Grid>
-                ))):(<div style={{color: "white", height: 150, paddingTop: 30 }}>Starships Not Found!</div>)}
+                ))):(<div style={{color: "white", height: 300, paddingTop: 30 }}>Starships Not Found!</div>)}
             </Grid>
               
             {totalPage !== null && starships.length > 0 ? (

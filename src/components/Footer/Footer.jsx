@@ -25,7 +25,6 @@ function Footer() {
   return (
     <Paper
       sx={{
-        position: "relative",
         backgroundColor: "black",
         borderTop: "1px solid #413F42",
       }}
@@ -44,9 +43,13 @@ function Footer() {
             fontSize: 30,
           }}
         >
-          <Link color="#eaf6f6" href="https://github.com/ktugbaa7"><SiGithub style={iconStyle} /></Link>
-          
-          <Link color="#eaf6f6" href="https://www.linkedin.com/in/tugbakoc7/"><SiLinkedin style={iconStyle} /></Link>
+          <Link color="#eaf6f6" href="https://github.com/ktugbaa7">
+            <SiGithub style={iconStyle} />
+          </Link>
+
+          <Link color="#eaf6f6" href="https://www.linkedin.com/in/tugbakoc7/">
+            <SiLinkedin style={iconStyle} />
+          </Link>
           <SiFacebook style={iconStyle} />
           <SiTwitter style={iconStyle} />
           <SiYoutube style={iconStyle} />
@@ -74,7 +77,7 @@ function Footer() {
             my: 2,
           }}
         >
-          <Typography variant="caption" color="gray"  fontSize={11}>
+          <Typography variant="caption" color="gray" fontSize={11}>
             © 2023 Star Wars
           </Typography>
         </Box>
