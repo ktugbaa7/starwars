@@ -1,6 +1,6 @@
 # FMSS FINAL CASE
 
-STAR WARS STARSHIPS SEARCH APP
+### STAR WARS STARSHIPS SEARCH APP
 
 Uygulamada API' dan gelen Yıldız Gemileri listelenmektedir. Gemiler arasında, gemi ismi veya modeline göre arama yapılabilir. Seçilen Yıldız Gemisinin detayına gidilebilir.
 
@@ -33,6 +33,8 @@ Kullanılan API: [SWAPI](https://swapi.dev/)
 ## Geri Bildirim
 
 Herhangi bir geri bildiriminiz varsa, lütfen ktugbaa7@gmail.com adresinden bana ulaşın.
+
+<img src="https://raw.githubusercontent.com/ktugbaa7/final-case/master/swapi.png?token=GHSAT0AAAAAACBMIBHVVONF6ANMJ3EA463OZCPQCPQ" width="auto">
 
 
 
