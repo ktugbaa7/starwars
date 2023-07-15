@@ -1,6 +1,6 @@
-# FMSS FINAL CASE
 
-### STAR WARS STARSHIPS SEARCH APP
+
+## STAR WARS STARSHIPS SEARCH APP
 
 Uygulamada API' dan gelen Yıldız Gemileri listelenmektedir. Gemiler arasında, gemi ismi veya modeline göre arama yapılabilir. Seçilen Yıldız Gemisinin detayına gidilebilir.
 
